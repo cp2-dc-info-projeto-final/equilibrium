@@ -44,7 +44,7 @@ O sistema deverá validar todas as entradas de dados no sistema.
 
 ### RF 11
 
-Para cada usuário, o sistema deverá armazenar o id, email, caminho da foto de perfil, nome, senha, telefone e nome de usuário.
+Para cada usuário, o sistema deverá armazenar o id, email, caminho da foto de perfil, nome, senha, data de nascimento e nome de usuário.
 
 ### RF 12
 
