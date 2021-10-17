@@ -6,6 +6,8 @@
  - [CDU 02](#CDU-02): Cadastro de usuário.
  - [CDU 03](#CDU-03): Pesquisa de perfil de usuário.
  - [CDU 04](#CDU-04): Gerenciamento de cadastros.
+ - [CDU 05](#CDU-05): Listagem das postagens dos usuários.
+ - [CDU 06](#CDU-06): Alteração de dados pessoais.
 
 
 ## Lista dos Atores
@@ -21,7 +23,7 @@
 
 ### CDU 01
 
-Atores: Administradores e usuários comuns
+Atores: Administradores e usuários comuns.
 
 **Fluxo Principal**
 
@@ -50,7 +52,7 @@ Atores: Administradores e usuários comuns
 
 ### CDU 02
 
-Atores: Administradores e usuários comuns
+Atores: Administradores e usuários comuns.
 
 **Fluxo Principal**
 
@@ -90,7 +92,7 @@ Atores: Administradores e usuários comuns
 
 ### CDU 03
  
-Atores: Administradores e usuários comuns
+Atores: Administradores e usuários comuns.
 
 **Fluxo Principal**
 
@@ -109,7 +111,7 @@ Atores: Administradores e usuários comuns
 
 ### CDU 04
 
-Atores: Administradores
+Atores: Administradores.
 
 **Fluxo Principal**
 
@@ -118,3 +120,20 @@ Atores: Administradores
 3. O administrador clica no botão "Conceder permissão", "Retirar permissão" ou "Excluir usuário".
 4. O sistema confirma a decisão do administrador.
 5. De acordo com o botão clicado, o sistema armazena a alteração de status de administrador ou exclui um certo usuário e informa que a operação foi realizada.
+
+### CDU 05
+
+Atores: Administradores e usuários comuns.
+
+**Fluxo Principal**
+
+1. Na página inicial do usuário, o sistema disponibiliza uma lista com todas as postagens deste usuários e dos seus amigos.
+2. O usuário ou quem buscou, com o nome de usuário, o perfil consulta as postagens.
+
+### CDU 06
+
+Atores: Administradores e usuários comuns.
+
+**Fluxo Principal**
+
+1. 
