@@ -28,11 +28,11 @@ O sistema deverá exibir as postagens dos usuários (timeline).
 
 ### RF 07
 
-O sistema deverá exibir os comentários da postagem.
+O sistema deverá permitir que o usuário comente em uma postagem. Os comentários desta postagem deverão ser exibidos.
 
 ### RF 08
 
-O sistema deverá permitir o usuário que o usuário curta uma postagem.
+O sistema deverá permitir que o usuário curta uma postagem.
 
 ### RF 09
 
@@ -44,11 +44,15 @@ O sistema deverá validar todas as entradas de dados no sistema.
 
 ### RF 11
 
-Para cada usuário, o sistema deverá armazenar o id, email, caminho da foto de perfil, nome, senha, data de nascimento e nome de usuário.
+Para cada usuário, o sistema deverá ser capaz de armazenar o id, email, caminho da foto de perfil, nome, senha, nome de usuário, bem como um indicador sinalizando se o usuário é administrador ou não.
 
 ### RF 12
 
-Para cada postagem, o sistema deverá armazenar o id, id_usuario, imagem e descricao.
+Para cada postagem, o sistema deverá ser capaz de armazenar o id, id do usuário que fez a postagem, data da postagem, caminho da imagem e descricao.
+
+### RF 13
+
+Para cada comentário, o sistema deverá ser capaz de armazenar o id, id do usuário que fez o comentário, id da postagem que o comentário está vinculado, data da postagem e texto.
 
 ## Requisitos Não-Funcionais
 
