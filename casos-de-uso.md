@@ -20,7 +20,6 @@
 
  - Administrador.
  - Usuário comum.
- - Usuário (administrador e usuário comum)
 
 ## Diagrama de Casos de Uso
 
@@ -30,7 +29,7 @@
 
 ### CDU 01
 
-Atores: Usuário.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
@@ -68,7 +67,7 @@ Atores: Usuário.
 
 ### CDU 02
 
-Atores: Usuário.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
@@ -109,7 +108,7 @@ Atores: Usuário.
 
 ### CDU 03
  
-Atores: Usuário.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
@@ -142,7 +141,7 @@ Atores: Administradores.
 
 ### CDU 05
 
-Atores: Usuário.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
@@ -151,7 +150,7 @@ Atores: Usuário.
 
 ### CDU 06
 
-Atores: Usuários.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
@@ -198,7 +197,7 @@ Atores: Usuários.
 
 ### CDU 07
 
-Atores: Usuário.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
@@ -240,7 +239,7 @@ Atores: Administrador e usuário comum.
 
 ### CDU 09
 
-Atores: Usuário.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
@@ -279,7 +278,7 @@ Atores: Usuário.
 
 ### CDU 10
 
-Atores: Usuário.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
@@ -321,7 +320,7 @@ Atores: Administrador e usuário comum.
 
 ### CDU 12
 
-Atores: Usuário.
+Atores: Administrador e usuário comum.
 
 **Fluxo Principal**
 
