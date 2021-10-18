@@ -231,7 +231,7 @@ Atores: Administrador e usuário comum.
 **Fluxo Principal**
 
 1. Na parte direita do menu da postagem presente na lista de postagens, o sistema disponibilizará um ícone de três pontos verticais.
-2. O usuário clica no símbolo citado.
+2. O usuário clica no ícone citado.
 3. O usuário clica na opção "Excluir postagem".
 4. O sistema exclui a postagem do banco de dados.
 5. O sistema informa que a postagem em questão foi excluída com sucesso.
@@ -243,7 +243,7 @@ Atores: Usuário.
 **Fluxo Principal**
 
 1. Na parte direita do menu da postagem presente na lista de postagens, o sistema disponibilizará um ícone de três pontos verticais.
-2. O usuário clica no símbolo citado.
+2. O usuário clica no ícone citado.
 3. O usuário clica em "Alterar postagem".
 4. O sistema encaminha o usuário para uma página com tal postagem passível de edição.
 5. O usuário altera o texto e, se quiser, carrega uma imagem clicando no ícone de câmera.
@@ -251,15 +251,15 @@ Atores: Usuário.
 7. O sistema valida a entrada.
 8. O sistema armazena a postagem no banco de dados.
 9. O sistema coloca esta postagem na lista de postagens deste e dos seus amigos.
-10. O sistema informa que a postagem foi publicada com sucesso.
+10. O sistema informa que a postagem foi alterada com sucesso.
 
 **Fluxo Alternativo A**
 
 1. Na parte direita do menu da postagem presente na lista de postagens, o sistema disponibilizará um ícone de três pontos verticais.
-2. O usuário clica no símbolo citado.
+2. O usuário clica no ícone citado.
 3. O usuário clica em "Alterar postagem".
 4. O sistema encaminha o usuário para uma página com tal postagem passível de edição.
-5. O usuário altera o texto e, se quiser, carrega uma imagem clicando no ícone de câmera.
+5. O usuário não preenche o campo texto.
 6. O usuário clica em "Publicar".
 7. O sistema informa que é obrigatório preencher o campo de texto.
 8. O sistema retorna ao fluxo principal.
@@ -267,10 +267,91 @@ Atores: Usuário.
 **Fluxo Alternativo B**
 
 1. Na parte direita do menu da postagem presente na lista de postagens, o sistema disponibilizará um ícone de três pontos verticais.
-2. O usuário clica no símbolo citado.
+2. O usuário clica no ícone citado.
 3. O usuário clica em "Alterar postagem".
 4. O sistema encaminha o usuário para uma página com tal postagem passível de edição.
 5. O usuário altera o texto e, se quiser, carrega uma imagem clicando no ícone de câmera.
 6. O usuário clica em "Publicar".
 7. O sistema informa que o usuário excedeu o número máximo de 1000 caracteres no campo texto.
+8. O sistema retorna ao fluxo principal.
+
+### CDU 10
+
+Atores: Usuário.
+
+**Fluxo Principal**
+
+1. Em uma determinada postagem, o sistema disponibiliza, abaixo do texto da postagem, um campo para os amigos do autor poderem comentar.
+2. O usuário digita algo no campo de texto.
+3. O usuário clica em "Comentar".
+4. O sistema valida a entrada.
+5. O sistema armazena o comentário no banco de dados.
+6. O sistema coloca este comentário na lista de comentários daquela postagem.
+7. O sistema informa que o comentário foi publicado com sucesso.
+
+**Fluxo Alternativo A**
+
+1. Em uma determinada postagem, o sistema disponibiliza, abaixo do texto da postagem, um campo para o autor e os amigos deste poderem comentar.
+2. O usuário deixa o campo de texto em branco.
+3. O usuário clica em "Comentar".
+4. O sistema informa que é obrigatório preencher o campo de texto.
+5. O sistema retorna ao fluxo principal.
+
+**Fluxo Alternativo B**
+
+1. Em uma determinada postagem, o sistema disponibiliza, abaixo do texto da postagem, um campo para o autor e os amigos deste poderem comentar.
+2. O usuário deixa o campo de texto em branco.
+3. O usuário clica em "Comentar".
+4. O sistema informa que o usuário excedeu o número máximo de 400 caracteres no campo texto.
+5. O sistema retorna ao fluxo principal.
+
+### CDU 11
+
+Atores: Administrador e usuário comum.
+
+**Fluxo Principal**
+
+1. No parte direita do menu do comentário de uma postagem, o sistema disponibilizará um ícone de três pontos verticais.
+2. O usuário clica no ícone citado.
+3. O usuário clica na opção "Excluir comentário".
+4. O sistema exclui o comentário do banco de dados.
+5. O sistema informa que o comentário em questão foi excluído com sucesso.
+
+### CDU 12
+
+Atores: Usuário.
+
+**Fluxo Principal**
+
+1. Na parte direita do menu do comentário de uma postagem, o sistema disponibilizará um ícone de três pontos verticais.
+2. O usuário clica no ícone citado.
+3. O usuário clica em "Alterar comentário".
+4. O sistema encaminha o usuário para uma página com tal comentário passível de edição.
+5. O usuário altera o texto.
+6. O usuário clica em "Comentar".
+7. O sistema valida a entrada.
+8. O sistema armazena o comentário no banco de dados.
+9. O sistema coloca este comentário na lista de comentários daquela postagem.
+10. O sistema informa que o comentário foi alterado com sucesso.
+
+**Fluxo Alternativo A**
+
+1. Na parte direita do menu do comentário de uma postagem, o sistema disponibilizará um ícone de três pontos verticais.
+2. O usuário clica no ícone citado.
+3. O usuário clica em "Alterar comentário".
+4. O sistema encaminha o usuário para uma página com tal comentário passível de edição.
+5. O usuário não preenche o campo texto.
+6. O usuário clica em "Comentar".
+7. O sistema informa que é obrigatório preencher o campo de texto.
+8. O sistema retorna ao fluxo principal.
+
+**Fluxo Alternativo B**
+
+1. Na parte direita do menu do comentário de uma postagem, o sistema disponibilizará um ícone de três pontos verticais.
+2. O usuário clica no ícone citado.
+3. O usuário clica em "Alterar comentário".
+4. O sistema encaminha o usuário para uma página com tal comentário passível de edição.
+5. O usuário altera o texto.
+6. O usuário clica em "Comentar".
+7. O sistema informa que o usuário excedeu o número máximo de 400 caracteres no campo texto.
 8. O sistema retorna ao fluxo principal.
