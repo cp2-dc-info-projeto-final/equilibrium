@@ -12,6 +12,8 @@
  - [CDU 08](#CDU-08): Exclusão de postagens.
  - [CDU 09](#CDU-09): Alteração de postagens.
  - [CDU 10](#CDU-10): Publicação de comentários.
+ - [CDU 11](#CDU-11): Exclusão de comentários.
+ - [CDU 12](#CDU-12): Alteração de comentários.
 
 
 ## Lista dos Atores
