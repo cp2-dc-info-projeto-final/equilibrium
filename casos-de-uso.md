@@ -228,6 +228,8 @@ Atores: Usuário.
 
 Atores: Administrador e usuário comum.
 
+**Fluxo Principal**
+
 1. Na parte direita do menu da postagem presente na lista de postagens, o sistema disponibilizará um ícone de três pontos verticais.
 2. O usuário clica no símbolo citado.
 3. O usuário clica na opção "Excluir postagem".
@@ -237,6 +239,8 @@ Atores: Administrador e usuário comum.
 ### CDU 09
 
 Atores: Usuário.
+
+**Fluxo Principal**
 
 1. Na parte direita do menu da postagem presente na lista de postagens, o sistema disponibilizará um ícone de três pontos verticais.
 2. O usuário clica no símbolo citado.
