@@ -32,7 +32,7 @@ O sistema deverá permitir que o usuário comente em uma postagem. Os comentári
 
 ### RF 08
 
-O sistema deverá permitir que o usuário curta uma postagem.
+O sistema deverá permitir que o usuário curta uma postagem e comentário.
 
 ### RF 09
 
