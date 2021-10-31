@@ -34,4 +34,4 @@ Possibilitar o encontro de sugestões, discussões e compartlhamentos de ideias 
 
 **Modelagem do Banco de Dados**
 
-![Diagrama de Banco de Dados](diagrama-exemplo.png)
+![Diagrama de Banco de Dados](diagrama_de_banco_de_dados.png)
