@@ -14,6 +14,8 @@
  - [CDU 10](#CDU-10): Publicação de comentários.
  - [CDU 11](#CDU-11): Exclusão de comentários.
  - [CDU 12](#CDU-12): Alteração de comentários.
+ - [CDU 13](#CDU-13): Curtir postagem.
+ - [CDU 14](#CDU-14): Curtir comentário.
 
 
 ## Lista dos Atores
@@ -356,3 +358,23 @@ Atores: Administrador e usuário comum.
 6. O usuário clica em "Comentar".
 7. O sistema informa que o usuário excedeu o número máximo de 400 caracteres no campo texto.
 8. O sistema retorna ao fluxo principal.
+
+### CDU 13
+
+Atores: Usuário comum.
+
+**Fluxo Principal**
+
+1. Na parte inferior direita da postagem, o sistema disponibilizará um ícone típico de curtida.
+2. O usuário clica no ícone citado.
+3. O sistema armazena o "gostei" daquela postagem no banco de dados.
+
+### CDU 13
+
+Atores: Usuário comum.
+
+**Fluxo Principal**
+
+1. Na parte inferior direita do comentário, o sistema disponibilizará um ícone típico de curtida.
+2. O usuário clica no ícone citado.
+3. O sistema armazena o "gostei" daquele comentário no banco de dados.
