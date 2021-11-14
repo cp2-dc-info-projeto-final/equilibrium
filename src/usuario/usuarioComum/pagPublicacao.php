@@ -30,16 +30,7 @@
     <title>Equilibrium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <style>
-        body {
-            background-color: #f0f2f5;
-        }
-        .container {
-            margin-top:15px;
-            padding-bottom:15px;
-            padding-top:20px;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/styleGeneral.css">
 </head>
 <body>
     <header class="py-3 mb-3 border-bottom shadow-sm" style="background-color:white;">
@@ -48,8 +39,8 @@
                 <img src="../../imagens/logo_completa.png" height="64" width="256">
             </a>
             <div class="d-flex align-items-center">
-                <form class="w-100 me-3">
-                    <input type="search" class="form-control" placeholder="Pesquisar usuário..." aria-label="Search">
+                <form class="w-100 me-3" name="formPesquisaUsuario" action="pagPesquisaUsuario.php" method="GET">
+                    <input type="search" class="form-control" placeholder="Pesquisar usuário..." name="nomeUsuarioPesquisado" aria-label="Search" title="Use apenas alfanuméricos com, no mínimo, três alfanuméricos" pattern="[A-Za-z1-9]{3,}">
                 </form>
 
                 <div class="flex-shrink-0 dropdown">
@@ -59,6 +50,11 @@
                     </a>
                     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                         <li><a class="dropdown-item" href="pagAlterarPerfil.php">Perfil</a></li>
+                        <?php if($tipoUsuario == 1){
+                                echo "<li><hr class='dropdown-divider'></li>";
+                                echo "<li><a class='dropdown-item' href='../admin/pagAdmin.php'>Página administrador</a></li>";
+                            }
+                        ?>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="../../funcao/logout.php">Sair</a></li>
                     </ul>

@@ -1,0 +1,15 @@
+body {
+    background-color: #f0f2f5;
+}
+
+.container {
+    margin-top:15px;
+    padding-bottom:15px;
+    padding-top:20px;
+    color:#1ABC9C;
+}
+
+.styleButton {
+    background-color:#1ABC9C;
+    color:white;
+}

@@ -15,17 +15,7 @@
         <link rel="stylesheet" href="../css/styleIndex.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-        <style>
-            body {
-            background-color: #f0f2f5;
-            }
-            .container {
-                margin-top:15px;
-                padding-bottom:15px;
-                padding-top:20px;
-                color:#1ABC9C;
-            }
-        </style>
+        <link rel="stylesheet" href="../css/styleGeneral.css">
     </head>
     <body>
         <div class="container text-center">
@@ -35,13 +25,18 @@
                         <h2>Cadastro</h2>
                         <p>É rápido e fácil.</p>
                         <hr style="color:black;">
+                        <?php if(isset($_GET["listaErroCadastro"])){
+                            echo "<p>".$_GET["listaErroCadastro"]."</p>";
+                        }elseif(isset($_GET["msgSucesso"])){
+                            echo "<p>".$_GET["msgSucesso"]."</p>";
+                        }?>
                         <form action="cadastro.php" method="post" class="form">
                             <input type="text" name="nomeCadastro" placeholder="Nome" class="form-control" required><br>
-                            <input type="text" name="usuarioCadastro" placeholder="Nome de usuário" class="form-control" required pattern="[a-z0-9]{1,25}"><br>
+                            <input type="text" name="usuarioCadastro" placeholder="Nome de usuário" title="Use apenas letras minúsculas e números" class="form-control" required pattern="[a-z0-9]{1,25}"><br>
                             <input type="email" name="emailCadastro" placeholder="Email" class="form-control" required><br>
                             <input type="password" name="passwordCadastro" placeholder="Senha" class="form-control" required><br>
                             <input type="password" name="confirmPasswordCadastro" placeholder="Confirmar senha" class="form-control" required><br>
-                            <input type="submit" value="Cadastrar" style="background-color:#1ABC9C;color:white;" class="form-control" name="btnCadastrar">
+                            <input type="submit" onclick="mudarCorFundoBotao(this)" value="Cadastrar" class="form-control styleButton" name="btnCadastrar">
                         </form>
                     </div>
                 </div>
@@ -51,6 +46,7 @@
             </div>
         </div>
         
+        <script src="../funcao/mudarCorFundo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>

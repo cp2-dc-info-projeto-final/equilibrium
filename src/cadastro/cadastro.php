@@ -13,15 +13,15 @@
 
         $nomeUsuario = $_POST["usuarioCadastro"];
         if(ehMesmoNomeUsuario($nomeUsuario, $PDO) != 0){
-            $ListaErro .= "<li>Nome de usuário já existente</li>";
-            header("location: pagCadastro.php?listaErroCadastro=".$ListaErro);
+            $ListaErro = "<li style='color:red;list-style-type:none;'>Nome de usuário já existente</li>";
+            header("location: pagCadastro.php?listaErroCadastro=".urlencode($ListaErro));
             exit();
         }
 
         $Email = $_POST["emailCadastro"];
         if(EhMesmoEmail($Email, $PDO) != 0):
-            $ListaErro .= "<li>Email já existente</li>";
-            header("location: pagCadastro.php?listaErroCadastro=".$ListaErro);
+            $ListaErro = "<li style='color:red;list-style-type:none;'>Email já existente</li>";
+            header("location: pagCadastro.php?listaErroCadastro=".urlencode($ListaErro));
             exit();
         endif;
         
@@ -32,8 +32,8 @@
         if($Senha === $ConfirmaSenha):
             $Senha = password_hash($Senha, PASSWORD_DEFAULT);
         else:
-            $ListaErro .= "<li>As senhas não coincidem</li>";
-            header("location: pagCadastro.php?listaErroCadastro=".$ListaErro);
+            $ListaErro = "<li style='color:red;list-style-type:none;'>As senhas não coincidem</li>";
+            header("location: pagCadastro.php?listaErroCadastro=".urlencode($ListaErro));
             exit();
         endif;
 
@@ -46,7 +46,7 @@
         $Prepare->bindParam(':nomeUsuario',$nomeUsuario);
         $Prepare->execute();
 
-        header("location: ../inicial/index.php?msgSucesso=<li>Cadastro feito com sucesso!</li>");
+        header("location: ../inicial/index.php?msgSucesso=".urlencode("<li style='color:#1ABC9C;list-style-type:none;'>Cadastro feito com sucesso!</li>"));
     else:
         header("location: pagCadastro.php");
     endif;

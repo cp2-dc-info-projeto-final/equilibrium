@@ -41,13 +41,13 @@
                 header("location: ../usuario/usuarioComum/pagPublicacao.php");
 
             else:
-                $ListaErros = "<li>Senha incorreta</li>";
-                header("location: ../inicial/index.php?listaErroLogin=".$ListaErros);
+                $ListaErros = "<li style='color:red;list-style-type:none;'>Senha incorreta</li>";
+                header("location: ../inicial/index.php?listaErroLogin=".urlencode($ListaErros));
                 exit();
             endif;
         else:
-            $ListaErros = "<li>Email incorreto ou inexistente</li>";
-            header("location: ../inicial/index.php?listaErroLogin=".$ListaErros);
+            $ListaErros = "<li style='color:red;list-style-type:none;'>Email incorreto ou inexistente</li>";
+            header("location: ../inicial/index.php?listaErroLogin=".urlencode($ListaErros));
             exit();
         endif;
     endif;
