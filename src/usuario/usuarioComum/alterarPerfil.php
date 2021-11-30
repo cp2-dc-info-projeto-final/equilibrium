@@ -40,35 +40,27 @@
         }
         unset($emailExistente);
 
-        $Senha = $_POST["passwordAlteracaoPerfil"];
-        $ConfirmaSenha = $_POST["confirmPasswordAlteracaoPerfil"];
-
-        if($Senha === $ConfirmaSenha):
-            $Senha = password_hash($Senha, PASSWORD_DEFAULT);
-        else:
-            $ListaErro = "<li style='color:red;list-style-type:none;'>As senhas não coincidem</li>";
-            header("location: pagAlterarPerfil.php?usuarioRequerido=".$usuarioRequerido."&listaErroAlteracaoPerfil=".urlencode($ListaErro));
-            exit();
-        endif;
-
-        $CmdSQL = "UPDATE usuario SET nome = :nomeCompleto, usuario = :nomeUsuario, email = :email, senha = :senha WHERE usuario = :usuario";
+        $CmdSQL = "UPDATE usuario SET nome = :nomeCompleto, usuario = :nomeUsuario, email = :email WHERE usuario = :usuario";
 
         $Prepare = $PDO->prepare($CmdSQL);
         $Prepare->bindParam(':nomeCompleto',$NomeCompleto);
         $Prepare->bindParam(':email',$email);
-        $Prepare->bindParam(':senha',$Senha);
         $Prepare->bindParam(':nomeUsuario',$nomeUsuario);
         $Prepare->bindParam(":usuario", $usuarioRequerido);
 
         $Resultado = $Prepare->execute();
 
-        if(isset($_GET["usuarioRequerido"]) && $_SESSION["tipoUsuario"] == 1 && $_SESSION["usuario"] != $nomeUsuario){
-            header("location: ../admin/pagAdmin.php?msgSucesso=".urlencode("<li style='color:#1ABC9C;list-style-type:none;'>Cadastro feito com sucesso!</li>"));
+        if($usuarioRequerido != $nomeUsuario && $usuarioRequerido == $_SESSION["usuario"]){
+            $_SESSION["usuario"] = $nomeUsuario;
         }
-        elseif($nomeUsuario != $usuarioRequerido){
-            header("location: ../../funcao/logout.php");
-        }else{
-            header("location: pagAlterarPerfil?mgsSucesso=");
+        if ($_SESSION["tipoUsuario"] == 1) {
+            header("location: pagAlterarPerfil.php?usuarioRequerido=".$nomeUsuario."&msgSucessoAlteracaoPerfil=".urlencode("<li style='color:#1ABC9C;list-style-type:none;'>Alteração feita com sucesso!</li>"));
+            exit();
         }
+
+        header("location: pagAlterarPerfil.php?msgSucessoAlteracaoPerfil=".urlencode("<li style='color:#1ABC9C;list-style-type:none;'>Alteração feita com sucesso!</li>"));
+        
+    }else{
+        header("location: ../../inicial/index.php");
     }
 ?>

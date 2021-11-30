@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 31-Out-2021 às 04:14
+-- Generation Time: 30-Nov-2021 às 17:58
 -- Versão do servidor: 5.7.17
 -- PHP Version: 7.1.3
 
@@ -21,6 +21,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `equilibrium`
 --
+
+DROP DATABASE IF EXISTS equilibrium;
+
+CREATE DATABASE equilibrium;
+
+USE equilibrium;
+
+
+DROP USER IF EXISTS 'admin'@'localhost';
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+
+GRANT ALL PRIVILEGES ON equilibrium.* TO 'admin'@'localhost';
 
 -- --------------------------------------------------------
 
@@ -78,6 +91,14 @@ CREATE TABLE `posts` (
   `alterado` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `posts`
+--
+
+INSERT INTO `posts` (`id`, `nome_img`, `id_usuario`, `texto`, `dt_postagem`, `alterado`) VALUES
+(42, 'Capture.PNG', 15, 'Vejam isto, pessoal! Fenomenal!', '2021-11-30', 1),
+(41, '240738868_3088188941412855_9009826850203493663_n.jpg', 15, 'Os monstros mais adoráveis de H. P. Lovecraft.', '2021-11-30', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -93,6 +114,17 @@ CREATE TABLE `usuario` (
   `caminhoFtPerfil` varchar(50) DEFAULT NULL,
   `admin` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nome`, `usuario`, `email`, `senha`, `caminhoFtPerfil`, `admin`) VALUES
+(16, 'Rayssa Neves Cunha', 'rayssaneves48', 'rayssanevescunha@hotmail.com', '$2y$10$VIxurzoHCkYSawyey4W2VOaD3mgqpqqoD.bezVpa2Al3fqXYA3Cp2', NULL, 0),
+(14, 'Rayssa Batista Nazzari', 'rayssabatistanazzari', 'rayssabatistanazzari@gmail.com', '$2y$10$E/Q0MDjYFsACZLZ2WC1aBOkaSiU4IVmmAZJA5HLYTWX608lRoJwD6', NULL, 1),
+(15, 'admin', 'admin', 'admin@gmail.com', '$2y$10$o.64Hq4qbC/IChn0xhda3eLJstZKsmofKFNPprX87iWQElzsQ5MTO', NULL, 1),
+(10, 'Salazar Falar Bar', 'salazarfalarbar', 'salazarfalarbar@gmail.com', '$2y$10$6szqU1wgspje7beElpSLFeWIGwoA5x7DfFH/nj9Um357sRMbL.ZcW', NULL, 0),
+(13, 'Henrique Tavares dos Santos', 'henriquetsantos', 'henriquetavaressantos@outlook.com', '$2y$10$Hk7hCbUjtE23MyxYS/nsP.r0BTUp/PFaDjvYygYMUTh16mMrbvCMu', NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -153,12 +185,12 @@ ALTER TABLE `gostei`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

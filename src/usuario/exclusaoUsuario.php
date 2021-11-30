@@ -17,7 +17,7 @@
         $consulta->bindParam(':usuario', $usuario);
         $consulta->execute();
 
-        header("location: ../funcao/logout.php");
+        header("location: admin/pagAdmin.php");
     }else{
         header("location: ../inicial/index.php");
     }

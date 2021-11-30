@@ -37,7 +37,7 @@
 <body>
     <header class="py-3 mb-3 border-bottom shadow-sm" style="background-color:white;">
         <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
-            <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
+            <a href="pagPublicacao.php" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-dark text-decoration-none" id="dropdownNavLink" aria-expanded="false">
                 <img src="../../imagens/logo_completa.png" height="64" width="256">
             </a>
             <div class="d-flex align-items-center">
@@ -67,25 +67,39 @@
 
     <div class="main">
         <div class="container text-center">
-                <div class="row">
-                    <div class="container col-lg-4 shadow-sm rounded" style="background-color:white">
-                        <h2>Alterar perfil</h2>
-                        <p>Equilibrium. O lugar de perfeito equilíbrio.</p>
-                        <hr style="color:black;">
-                        <?php if(isset($_GET["listaErroAlteracaoPerfil"])){
-                            echo "<p>".$_GET["listaErroAlteracaoPerfil"]."</p>";
-                        }elseif(isset($_GET["msgSucesso"])){
-                            echo "<p>".$_GET["msgSucesso"]."</p>";
-                        }?>
-                        <form action="alterarPerfil.php?usuarioRequerido=<?php echo $usuario;?>" method="post" class="form">
-                            <input type="text" name="nomeAlteracaoPerfil" value="<?php echo $dadosUsuario["nome"];?>" placeholder="Nome" class="form-control" required><br>
-                            <input type="text" name="usuarioAlteracaoPerfil" value="<?php echo $usuario;?>" placeholder="Nome de usuário" title="Use apenas letras minúsculas e números" class="form-control" required pattern="[a-z0-9]{1,25}"><br>
-                            <input type="email" name="emailAlteracaoPerfil" value="<?php echo $dadosUsuario["email"];?>" placeholder="Email" class="form-control" required><br>
-                            <input type="password" name="passwordAlteracaoPerfil" placeholder="Nova senha" class="form-control" required><br>
-                            <input type="password" name="confirmPasswordAlteracaoPerfil" placeholder="Confirmar nova senha" class="form-control" required><br>
-                            <input type="submit" onclick="mudarCorFundoBotao(this)" value="Salvar" class="form-control styleButton" name="btnSalvarPerfil">
-                        </form>
-                    </div>
+            <div class="row">
+                <div class="container col-lg-4 shadow-sm rounded" style="background-color:white">
+                    <h2>Alterar perfil</h2>
+                    <p>Equilibrium. O lugar de perfeito equilíbrio.</p>
+                    <hr style="color:black;">
+                    <?php if(isset($_GET["listaErroAlteracaoPerfil"])){
+                        echo "<p>".$_GET["listaErroAlteracaoPerfil"]."</p>";
+                    }elseif(isset($_GET["msgSucessoAlteracaoPerfil"])){
+                        echo "<p>".$_GET["msgSucessoAlteracaoPerfil"]."</p>";
+                    }?>
+                    <form action="alterarPerfil.php?usuarioRequerido=<?php echo $usuario;?>" method="post" class="form">
+                        <input type="text" name="nomeAlteracaoPerfil" value="<?php echo $dadosUsuario["nome"];?>" placeholder="Nome" class="form-control" required><br>
+                        <input type="text" name="usuarioAlteracaoPerfil" value="<?php echo $usuario;?>" placeholder="Nome de usuário" title="Use apenas letras minúsculas e números" class="form-control" required pattern="[a-z0-9]{1,25}"><br>
+                        <input type="email" name="emailAlteracaoPerfil" value="<?php echo $dadosUsuario["email"];?>" placeholder="Email" class="form-control" required><br>
+                        <input type="submit" onclick="mudarCorFundoBotao(this)" value="Salvar" class="form-control styleButton" name="btnSalvarPerfil">
+                    </form>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="container col-lg-4 shadow-sm rounded" style="background-color:white">
+                    <h2>Nova senha</h2>
+                    <hr style="color:black;">
+                    <?php if(isset($_GET["listaErroAlteracaoSenha"])){
+                        echo "<p>".$_GET["listaErroAlteracaoSenha"]."</p>";
+                    }elseif(isset($_GET["msgSucessoAlteracaoSenha"])){
+                        echo "<p>".$_GET["msgSucessoAlteracaoSenha"]."</p>";
+                    }?>
+                    <form action="alterarSenha.php?usuarioRequerido=<?php echo $usuario;?>" method="post" class="form">
+                        <input type="password" name="passwordAlteracaoSenha" placeholder="Nova senha" class="form-control" required><br>
+                        <input type="password" name="confirmPasswordAlteracaoSenha" placeholder="Confirmar nova senha" class="form-control" required><br>
+                        <input type="submit" onclick="mudarCorFundoBotao(this)" value="Alterar senha" class="form-control styleButton" name="btnAlterarSenha">
+                    </form>
                 </div>
             </div>
         </div>

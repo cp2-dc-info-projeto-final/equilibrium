@@ -62,11 +62,102 @@
             </div>
         </div>
     </header>
+    <div class="main">
+    <div class="container col-lg-6 col-md-6 col-sm-6 rounded">
+            <img src="" alt="imagem do post" class="card-img-top" id="imgPreviewPost" hidden>
+            <div class="card">
+                <div class="card-body">
+                    <form action="../../post/publicacaoPost.php" method="POST" id="formPublicacao" name="formPublicacao" enctype="multipart/form-data">
+                        <textarea name="descricaoPostagem" form="formPublicacao" rows="7" class="form-control" placeholder="O que está esperando para mudar o mundo?" maxlength="1000" style="resize: none;" required></textarea>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                                <input type="file" name="imgPostName" accept="image/*" id="imgPostId" hidden>
+                                <input type="submit" value="Publicar" name="btnPublicar" class="form-control" style="background-color:#1ABC9C;color:#FFF;">
+                            </form>
+                        </div>
+                        <div class="text-end col-sm-9 col-md-9 col-lg-9">
+                            <label for="imgPostId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16" style="color:#1ABC9C;">
+                                    <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                    <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <?php
+            require_once("../../post/feed.php");
+
+            $posts = listarPost($PDO,$_SESSION["logado"]);
+
+            for($indicePost = 0;$indicePost < count($posts);$indicePost++){
+                ?>
+                <div class="container col-lg-6 col-md-6 col-sm-6 rounded">
+                    <div class="card">
+                        <?php
+                            if(isset($posts[$indicePost]["nome_img"])){
+                                ?><img src="../../imagens/post/<?php echo $posts[$indicePost]["nome_img"] ?>" alt="imagem do post" class="card-img-top"><?php
+                            }
+                        ?>
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="flex-shrink-0 col-lg-6 col-md-5 col-sm-5">
+                                    <a href="#" class="d-block link-dark text-decoration-none" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#1ABC9C" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                                        </svg>
+                                    </a>
+                                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                                        <li><a class="dropdown-item" onclick="alterarPostagem(<?php echo $posts[$indicePost]['id'];?>)" href="#">Alterar postagem</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" onclick="excluirPostagem(<?php echo $posts[$indicePost]['id'];?>)" href="#">Excluir postagem</a></li>
+                                    </ul>
+                                </div>
+                                <div class="text-end col-lg-6 col-md-5 col-sm-5">
+                                    <p style="color:#1ABC9C;"><span><?php echo $nome["nome"];?></span><strong><?php
+                                        if($posts[$indicePost]["alterado"]){
+                                            echo " - ".$posts[$indicePost]["dt_postagem"]." - alterado";
+                                        }else{
+                                            echo " - ".$posts[$indicePost]["dt_postagem"];
+                                        }
+                                    ?></strong></p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <textarea disabled class="form-control" rows="7" style="resize: none;background-color:#FFF;"><?php echo $posts[$indicePost]["texto"]; ?></textarea>
+                        </div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+                
+                <?php
+            }
+        ?>
+    </div>
     
 
     <footer></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+        function excluirPostagem(idPostagem){
+            if(confirm("Você realmente deseja fazer isto?")){
+                window.location.replace("../../post/excluirPost.php?idPostagem="+idPostagem);
+            }
+        }
+
+        function alterarPostagem(idPostagem){
+            if(confirm("Você realmente deseja fazer isto?")){
+                window.location.replace("../../post/pagAlterarPost.php?idPostagem="+idPostagem);
+            }
+        }
+    </script>
 </body>
 </html>
