@@ -1,16 +1,13 @@
 # Manual do Usuário
 
-Nullam vitae velit a eros dignissim bibendum id a enim. Vestibulum hendrerit nisl sed magna gravida, non elementum urna condimentum. Quisque porta tincidunt nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis at varius mauris. Quisque molestie ante imperdiet elit blandit, ac volutpat sem efficitur. Donec nec sem tempus, ullamcorper nisl non, blandit tortor. Etiam suscipit rutrum laoreet. Donec facilisis eros ultrices, venenatis quam nec, feugiat ante. Donec ante eros, consequat nec nibh vitae, porta vehicula orci. Duis nec eros et lorem malesuada sodales. Praesent auctor accumsan ipsum, et volutpat ex porttitor eu. Vestibulum facilisis elementum elit, hendrerit mollis velit pretium in. Curabitur tristique vel augue a sodales. Sed malesuada lacinia porttitor.
-
 **Lista das Funcionalidades:**
 
  - [Cadastro](#Cadastro)
  - [Login](#Login)
- - [Encerramento de sessão](Encerramento-de-sessão)
- - [Edição de perfil](#Edição-de-perfi)
+ - [Encerramento de sessão](#Encerramento-de-sessão)
+ - [Edição de perfil](#Edição-de-perfil)
  - [Troca de senha](#Troca-de-senha)
  - [Timeline de posts pessoais](#Timeline-de-posts-pessoais)
- - [Exclusão de usuário](#Exclusão-de-usuário)
  - [Privilégios de administrador](#Privilégios-de-administrador)
  - [Publicação de posts](#Publicação-de-posts)
  - [Exclusão de posts](#Exclusão-de-posts)
