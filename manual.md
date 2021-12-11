@@ -22,7 +22,7 @@
 
 Para o usuário se cadastrar, este deve se dirigir a página inicial (index.php) e clicar no botão “Cadastrar” que está abaixo do painel de login. No painel de cadastro, haverá campos como nome de usuário e email. O usuário deverá preencher todos corretamente, já que, no caso de algum campo ser enviado incorretamente, o sistema enviará um aviso de erro ao usuário. Se todos os campos estiverem corretos, o sistema redireciona o usuário para o painel de login na página inicial.
 
-![](src/imagens/manual_do_usuario/cadastro_link.png)
+![link de cadastro](src/imagens/manual_do_usuario/cadastro_link.png)
 
 ![](src/imagens/manual_do_usuario/cadastro.png)
 
