@@ -19,7 +19,7 @@ Aberto para todas as idades que buscam registrar ou
 descobrir hábitos de vida mais saudáveis para sua rotina.
 
 ### Motivação para criação da rede social
-Possibilitar o encontro de sugestões, discussões e compartlhamentos de ideias sobre ações e hábitos relativos à busca de uma vida saudável nos âmbitos de alimentação, atividade física, meditação e autocuidado, somando e equilibrando todos esses aspectos em prol da busca do bem estar físico e mental dos usuários.
+Possibilitar o encontro de sugestões, discussões e compartilhamentos de ideias sobre ações e hábitos relativos à busca de uma vida saudável nos âmbitos de alimentação, atividade física, meditação e autocuidado, somando e equilibrando todos esses aspectos em prol da busca do bem estar físico e mental dos usuários.
 
 ## Documentação
 
