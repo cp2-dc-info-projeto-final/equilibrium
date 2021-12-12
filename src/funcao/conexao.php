@@ -6,8 +6,7 @@
 
         $PDO = new PDO('mysql:host=localhost;
         dbname=equilibrium;charset=utf8',
-        'admin',
-        'admin');
+        'admin','admin');
 
         $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

@@ -25,12 +25,22 @@
         }else{
             $dirPastaPostImg = "../imagens/post/";
 
+            $imageFileType = strtolower(pathinfo($_FILES["imgPostName"]["name"], PATHINFO_EXTENSION));
+
+            $imgName = uniqid("img_",true) . "." . $imageFileType;
+
+            do{
+                $target_file = $dirPastaPostImg . $imgName;
+                if (!file_exists($target_file)) { // verifica se ainda não existe arquivo com esse nome
+                    break;
+                }
+            } while(true);
+
             if(!file_exists($dirPastaPostImg)){
                 mkdir($dirPastaPostImg);
             }
 
-            $imgName = $_FILES["imgPostName"]["name"];
-            move_uploaded_file($_FILES["imgPostName"]["tmp_name"], $dirPastaPostImg.$imgName); 
+            move_uploaded_file($_FILES["imgPostName"]["tmp_name"], $target_file); 
 
             $texto = $_POST["descricaoPostagem"];
             $dtPublicacao = date("Y-m-d");
@@ -43,12 +53,19 @@
             $consulta->bindParam(":dtPublicacao",$dtPublicacao);
             $consulta->execute();
             
-            if($consulta){
+            if($_GET["pagRetorno"] == "pagPesquisaUsuario"){
+                header("Location: ../usuario/usuarioComum/pagPesquisaUsuario.php?nomeUsuarioPesquisado=".urlencode($_GET["nomeUsuarioPesquisado"]));
+            }else{
                 header("Location: ../usuario/usuarioComum/pagPublicacao.php");
             }
         }
     }else{
-        header("Location: ../usuario/usuarioComum/pagPublicacao.php");
-        exit();
+        if($_GET["pagRetorno"] == "pagPesquisaUsuario"){
+            header("Location: ../usuario/usuarioComum/pagPesquisaUsuario.php?nomeUsuarioPesquisado=".urlencode($_GET["nomeUsuarioPesquisado"]));
+        }else{
+            header("Location: ../usuario/usuarioComum/pagPublicacao.php");
+        }
     }
+
+    exit();
 ?>

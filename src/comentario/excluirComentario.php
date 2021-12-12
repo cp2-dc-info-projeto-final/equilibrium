@@ -5,16 +5,17 @@
         header("Location: ../inicial/index.php");
         exit();
     }
+
     require_once("../funcao/conexao.php");
 
     $PDO = CriarConexao();
 
-    $idPostagem = $_GET["idPostagem"];
+    $idComentario = $_GET["idComentario"];
 
     if($_SESSION["tipoUsuario"] != 1){
-        $sql = "SELECT id_usuario FROM posts WHERE id = :idPostagem";
+        $sql = "SELECT id_usuario FROM comentario WHERE id = :idComentario";
         $consulta = $PDO->prepare($sql);
-        $consulta->bindParam(":idPostagem",$idPostagem);
+        $consulta->bindParam(":idComentario",$idComentario);
         $consulta->execute();
 
         $idUsuario = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -27,28 +28,10 @@
         unset($idUsuario);
     }
 
-    $sql = "SELECT nome_img FROM posts WHERE id = :idPostagem";
+
+    $sql = "DELETE FROM comentario WHERE id = :idComentario";
     $consulta = $PDO->prepare($sql);
-    $consulta->bindParam(":idPostagem", $idPostagem);
-    $consulta->execute();
-
-    $imgName = $consulta->fetch(PDO::FETCH_ASSOC);
-
-    unlink("../imagens/post/".$imgName["nome_img"]);
-
-    $sql = "DELETE FROM gostei WHERE id_post_ou_coment = :idPostagem";
-    $consulta = $PDO->prepare($sql);
-    $consulta->bindParam(":idPostagem", $idPostagem);
-    $consulta->execute();
-
-    $sql = "DELETE FROM comentario WHERE id_post = :idPostagem";
-    $consulta = $PDO->prepare($sql);
-    $consulta->bindParam(":idPostagem", $idPostagem);
-    $consulta->execute();
-
-    $sql = "DELETE FROM posts WHERE id = :idPostagem";
-    $consulta = $PDO->prepare($sql);
-    $consulta->bindParam(":idPostagem", $idPostagem);
+    $consulta->bindParam(":idComentario", $idComentario);
     $consulta->execute();
 
     if($_GET["pagRetorno"] == "pagPesquisaUsuario"){
@@ -56,5 +39,6 @@
     }else{
         header("Location: ../usuario/usuarioComum/pagPublicacao.php");
     }
+    
     exit();
 ?>

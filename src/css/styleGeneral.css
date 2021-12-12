@@ -13,3 +13,8 @@ body {
     background-color:#1ABC9C;
     color:white;
 }
+
+textarea {
+    resize: none;
+    background-color: #fff;
+}

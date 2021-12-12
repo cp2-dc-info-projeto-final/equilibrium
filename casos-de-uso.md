@@ -365,16 +365,28 @@ Atores: Usuário comum.
 
 **Fluxo Principal**
 
-1. Na parte inferior direita da postagem, o sistema disponibilizará um ícone típico de curtida.
+1. Na parte inferior esquerda da postagem, o sistema disponibilizará um ícone típico de curtida.
 2. O usuário clica no ícone citado.
-3. O sistema armazena o "gostei" daquela postagem no banco de dados.
+3. O sistema armazena um "gostei" daquela postagem no banco de dados.
 
-### CDU 13
+**Fluxo Alternativo A**
+
+1. Na parte inferior esquerda da postagem, o sistema disponibilizará um ícone típico de curtida.
+2. O usuário clica, novamente, no ícone citado.
+3. O sistema retira um "gostei" daquela postagem no banco de dados.
+
+### CDU 14
 
 Atores: Usuário comum.
 
 **Fluxo Principal**
 
-1. Na parte inferior direita do comentário, o sistema disponibilizará um ícone típico de curtida.
+1. Na parte inferior esquerda do comentário, o sistema disponibilizará um ícone típico de curtida.
 2. O usuário clica no ícone citado.
-3. O sistema armazena o "gostei" daquele comentário no banco de dados.
+3. O sistema armazena um "gostei" daquele comentário no banco de dados.
+
+**Fluxo Alternativo A**
+
+1. Na parte inferior esquerda do comentário, o sistema disponibilizará um ícone típico de curtida.
+2. O usuário clica, novamente, no ícone citado.
+3. O sistema retira um "gostei" daquele comentário no banco de dados.

@@ -21,18 +21,38 @@
             $consulta->bindParam(":idPostagem", $idPostagem);
             $consulta->execute();
 
-            if($consulta) {
-                header("Location: ../usuario/usuarioComum/pagPublicacao.php");
-            }
+            
+            header("Location: ../usuario/usuarioComum/pagPublicacao.php");
+            
         }else{
             $dirPastaPostImg = "../imagens/post/";
+
+            $sql = "SELECT nome_img FROM posts WHERE id = :idPostagem";
+            $consulta = $PDO->prepare($sql);
+            $consulta->bindParam(":idPostagem", $idPostagem);
+            $consulta->execute();
+
+            $imgName = $consulta->fetch(PDO::FETCH_ASSOC);
+
+            unlink($dirPastaPostImg.$imgName["nome_img"]);
+
+            $imageFileType = strtolower(pathinfo($_FILES["imgAlteracaoPostName"]["name"], PATHINFO_EXTENSION));
+
+            $imgName = uniqid("img_",true) . "." . $imageFileType;
+
+            do{
+                $target_file = $dirPastaPostImg . $imgName;
+                if (!file_exists($target_file)) { // verifica se ainda não existe arquivo com esse nome
+                    break;
+                }
+            } while(true);
 
             if(!file_exists($dirPastaPostImg)){
                 mkdir($dirPastaPostImg);
             }
 
-            $imgName = $_FILES["imgAlteracaoPostName"]["name"];
-            move_uploaded_file($_FILES["imgAlteracaoPostName"]["tmp_name"], $dirPastaPostImg.$imgName); 
+            move_uploaded_file($_FILES["imgAlteracaoPostName"]["tmp_name"], $target_file);
+
 
             $texto = $_POST["textoPostAlterado"];
             $dtPublicacao = date("Y-m-d");
@@ -46,12 +66,15 @@
             $consulta->bindParam(":idPostagem", $idPostagem);
             $consulta->execute();
             
-            if($consulta){
-                header("Location: ../usuario/usuarioComum/pagPublicacao.php");
-            }
+            
+            header("Location: ../usuario/usuarioComum/pagPublicacao.php");
+            
         }
     }else{
+        
         header("Location: ../usuario/usuarioComum/pagPublicacao.php");
-        exit();
+        
     }
+
+    exit();
 ?>

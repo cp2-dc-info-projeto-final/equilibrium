@@ -13,16 +13,16 @@
 
     $PDO = CriarConexao();
 
-    $idPostagem = $_GET["idPostagem"];
+    $idComentario = $_GET["idComentario"];
 
-    $sql = "SELECT id_usuario, nome_img, texto  FROM posts WHERE id = :idPostagem";
+    $sql = "SELECT id_usuario, id_post, texto, dt_comentario FROM comentario WHERE id = :idComentario";
     $consulta = $PDO->prepare($sql);
-    $consulta->bindParam(":idPostagem",$idPostagem);
+    $consulta->bindParam(":idComentario",$idComentario);
     $consulta->execute();
 
-    $dadosPost = $consulta->fetch(PDO::FETCH_ASSOC);
+    $dadosComentario = $consulta->fetch(PDO::FETCH_ASSOC);
 
-    if($_SESSION["tipoUsuario"] != 1 && $dadosPost["id_usuario"] != $_SESSION["logado"]){
+    if($_SESSION["tipoUsuario"] != 1 && $dadosComentario["id_usuario"] != $_SESSION["logado"]){
         header("Location: ../usuario/usuarioComum/pagPublicacao.php");
         exit();
     }
@@ -84,32 +84,27 @@
     <div class="main">
         <div class="container col-lg-6 col-md-6 col-sm-6 rounded">
             <div class="card">
-                <?php
-                    if(isset($dadosPost["nome_img"])){
-                        ?><img src="../imagens/post/<?php echo $dadosPost["nome_img"]; ?>" alt="imagem do post" class="card-img-top"><?php
-                    }
-                ?>
                 <div class="card-body">
-                    <form action="alterarPost.php?idPostagem=<?php echo $idPostagem?>" method="POST" id="formAlteracaoPost" name="formAlteracaoPost" enctype="multipart/form-data">
-                        <textarea name="textoPostAlterado" form="formAlteracaoPost" rows="7" class="form-control" placeholder="O que está esperando para mudar o mundo?" maxlength="1000" style="resize: none;" required><?php echo $dadosPost["texto"]; ?></textarea>
-                </div>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="col-sm-3 col-md-3 col-lg-3">
-                                <input type="file" name="imgAlteracaoPostName" accept="image/*" id="imgAlteracaoPostId" hidden>
-                                <input type="submit" value="Alterar" name="btnAlterarPost" class="form-control" style="background-color:#1ABC9C;color:#FFF;">
+                    <div class="mb-3">
+                        <a href="#" class="d-block link-dark text-decoration-none form-label" style="color:#1ABC9C" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                            <strong><?php echo $_SESSION["usuario"];?></strong>
+                        </a>
+                        <div class="row g-3 align-items-center">        
+                            <div class="col-11">
+                                <form method="POST" action="alterarComentario.php" id="formComentario">
+                                    <textarea name="textoComentAlterado" rows="3" class="form-control" placeholder="O que achou do post? Comente!" maxlength="400" required><?php echo $dadosComentario["texto"]; ?></textarea>
+                            </div>
+                                        
+                                <input type="number" name="idComentario" value="<?php echo $idComentario; ?>" hidden>
+                                <div class="col-3">
+                                    <input type="submit" name="btnAlterarComentario" class="form-control" value="Comentar" style="background-color:#1ABC9C;color:#FFF;">
+                                </div>
                             </form>
-                        </div>
-                        <div class="text-end col-sm-9 col-md-9 col-lg-9">
-                            <label for="imgAlteracaoPostId">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-camera-fill" viewBox="0 0 16 16" style="color:#1ABC9C;">
-                                    <path d="M10.5 8.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                                    <path d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0z"/>
-                                </svg>
-                            </label>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

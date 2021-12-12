@@ -43,7 +43,7 @@
             </a>
             <div class="d-flex align-items-center">
                 <form class="w-100 me-3" name="formPesquisaUsuario" action="../usuarioComum/pagPesquisaUsuario.php" method="GET">
-                    <input type="search" class="form-control" placeholder="Pesquisar usuário..." name="nomeUsuarioPesquisado" aria-label="Search" title="Use apenas alfanuméricos com, no mínimo, três alfanuméricos" pattern="[A-Za-z1-9]{3,}">
+                    <input type="search" class="form-control" placeholder="Pesquisar usuário..." name="nomeUsuarioPesquisado" aria-label="Search" title="Use apenas alfanuméricos com, no mínimo, três alfanuméricos" pattern="[A-Za-z1-9]{3,}" required>
                 </form>
 
                 <div class="flex-shrink-0 dropdown">
@@ -89,10 +89,10 @@
                 <div class="card-footer text-center">
                         <div class="row g-3">
                             <div class="col">
-                                <input type="submit" name="btnConcederPermissao" class="col-md-4 rounded form-control styleButton" value="Conceder permissão" onclick="mudarCorFundoBotao(this)">
+                                <input type="submit" name="btnConcederPermissao" class="col-md-4 rounded form-control styleButton" value="Promover a admin" onclick="mudarCorFundoBotao(this)">
                             </div>
                             <div class="col">
-                                <input type="submit" name="btnRetirarPermissao"  class="col-md-4 rounded form-control styleButton" value="Retirar permissão" onclick="mudarCorFundoBotao(this)">
+                                <input type="submit" name="btnRetirarPermissao"  class="col-md-4 rounded form-control styleButton" value="Retirar admin" onclick="mudarCorFundoBotao(this)">
                             </div>
                             <div class="col">
                                 <input type="submit" name="btnEditarUsuario"  class="col-md-4 rounded form-control styleButton" value="Editar usuário" onclick="mudarCorFundoBotao(this)">
