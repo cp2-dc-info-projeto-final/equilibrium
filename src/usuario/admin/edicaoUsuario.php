@@ -11,22 +11,22 @@
         exit();
     }
 
-    $usuarioRequerido = $_POST["usuarioEdicao"];
+    $idUsuarioRequerido = $_POST["idUsuarioEdicao"];
 
     if(isset($_POST["btnConcederPermissao"])){
-        $sql = "UPDATE usuario SET admin = 1 WHERE usuario = :usuario";
+        $sql = "UPDATE usuario SET admin = 1 WHERE id = :idUsuarioRequerido";
     }elseif(isset($_POST["btnRetirarPermissao"])){
-        $sql = "UPDATE usuario SET admin = 0 WHERE usuario = :usuario";
+        $sql = "UPDATE usuario SET admin = 0 WHERE id = :idUsuarioRequerido";
     }elseif(isset($_POST["btnExcluirUsuario"])){
-        header("location: ../exclusaoUsuario.php?usuarioRequerido=".$usuarioRequerido);
+        header("location: ../exclusaoUsuario.php?idUsuarioRequerido=".$idUsuarioRequerido);
         exit();
     }elseif(isset($_POST["btnEditarUsuario"])){
-        header("location: ../usuarioComum/pagAlterarPerfil.php?usuarioRequerido=".$usuarioRequerido);
+        header("location: ../usuarioComum/pagAlterarPerfil.php?idUsuarioRequerido=".$idUsuarioRequerido);
         exit();
     }
 
     $consulta = $PDO->prepare($sql);
-    $consulta->bindParam(':usuario',$usuarioRequerido);
+    $consulta->bindParam(':idUsuarioRequerido',$idUsuarioRequerido);
     $consulta->execute();
 
     header("location: pagAdmin.php");

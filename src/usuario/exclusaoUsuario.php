@@ -6,15 +6,30 @@
 
         $PDO = CriarConexao();
 
-        if(isset($_GET["usuarioRequerido"]) && $_SESSION["tipoUsuario"] == 1) {
-            $usuario = $_GET["usuarioRequerido"];
+        if(isset($_GET["idUsuarioRequerido"]) && $_SESSION["tipoUsuario"] == 1) {
+            $idUsuarioRequerido = $_GET["idUsuarioRequerido"];
         }else{
-            $usuario = $_SESSION["usuario"];
+            $idUsuarioRequerido = $_SESSION["logado"];
         }
 
-        $sql = "DELETE FROM usuario WHERE usuario = :usuario";
+        $sql = "DELETE FROM posts WHERE id_usuario = :id_usuario";
         $consulta = $PDO->prepare($sql);
-        $consulta->bindParam(':usuario', $usuario);
+        $consulta->bindParam(':id_usuario', $idUsuarioRequerido);
+        $consulta->execute();
+
+        $sql = "DELETE FROM comentario WHERE id_usuario = :id_usuario";
+        $consulta = $PDO->prepare($sql);
+        $consulta->bindParam(':id_usuario', $idUsuarioRequerido);
+        $consulta->execute();
+
+        $sql = "DELETE FROM gostei WHERE id_usuario = :id_usuario";
+        $consulta = $PDO->prepare($sql);
+        $consulta->bindParam(":id_usuario", $idUsuarioRequerido);
+        $consulta->execute();
+
+        $sql = "DELETE FROM usuario WHERE id = :idUsuarioRequerido";
+        $consulta = $PDO->prepare($sql);
+        $consulta->bindParam(':idUsuarioRequerido', $idUsuarioRequerido);
         $consulta->execute();
 
         header("location: admin/pagAdmin.php");

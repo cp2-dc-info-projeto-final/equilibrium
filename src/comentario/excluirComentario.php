@@ -28,6 +28,10 @@
         unset($idUsuario);
     }
 
+    $sql = "DELETE FROM gostei WHERE id_post_ou_coment = :idComentario AND gostei_de_post_ou_coment = 1";
+    $consulta = $PDO->prepare($sql);
+    $consulta->bindParam(":idComentario", $idComentario);
+    $consulta->execute();
 
     $sql = "DELETE FROM comentario WHERE id = :idComentario";
     $consulta = $PDO->prepare($sql);

@@ -71,13 +71,13 @@
                 </div>
                 <div class="card-body text-center">
                     <?php
-                        $sql = "SELECT nome, usuario FROM usuario";
+                        $sql = "SELECT nome, id FROM usuario";
                     ?>
                     <form action="edicaoUsuario.php" method="POST" id="formEdicaoUsuario" class="row g-3">
                         <div>
                             <div>
                                 <div class="form-inline">
-                                    <select name="usuarioEdicao" class="form-select rounded col-6 mx-auto">
+                                    <select name="idUsuarioEdicao" class="form-select rounded col-6 mx-auto">
                                         <?php foreach($PDO->query($sql) as $dadoUsuario){?>
                                         <option value="<?php echo $dadoUsuario[1];?>"><?php echo $dadoUsuario[0]; ?></option>
                                         <?php }?>

@@ -7,7 +7,7 @@
         
         $PDO = CriarConexao();
         
-        $usuarioRequerido = $_GET["usuarioRequerido"];
+        $idUsuarioRequerido = $_GET["idUsuarioRequerido"];
         
         $ListaErro = "";
 
@@ -22,14 +22,14 @@
             exit();
         endif;
 
-        $CmdSQL = "UPDATE usuario SET senha = :senha WHERE usuario = :usuarioRequerido";
+        $CmdSQL = "UPDATE usuario SET senha = :senha WHERE id = :idUsuarioRequerido";
         $Resultado = $PDO->prepare($CmdSQL);
         $Resultado->bindParam(':senha',$senha);
-        $Resultado->bindParam(":usuarioRequerido",$usuarioRequerido);
+        $Resultado->bindParam(":idUsuarioRequerido",$idUsuarioRequerido);
         $Resultado->execute();
 
         if ($_SESSION["tipoUsuario"] == 1) {
-            header("location: pagAlterarPerfil.php?msgSucessoAlteracaoSenha=".urlencode("<li style='color:#1ABC9C;list-style-type:none;'>Alteração feita com sucesso!</li>")."&usuarioRequerido=".$nomeUsuario);
+            header("location: pagAlterarPerfil.php?msgSucessoAlteracaoSenha=".urlencode("<li style='color:#1ABC9C;list-style-type:none;'>Alteração feita com sucesso!</li>")."&idUsuarioRequerido=".$idUsuarioRequerido);
             exit();
         }
         

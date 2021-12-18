@@ -36,7 +36,7 @@
 
     unlink("../imagens/post/".$imgName["nome_img"]);
 
-    $sql = "DELETE FROM gostei WHERE id_post_ou_coment = :idPostagem";
+    $sql = "DELETE FROM gostei WHERE (id_post_ou_coment = :idPostagem AND gostei_de_post_ou_coment = 0) OR (id_post_ou_coment = (SELECT id FROM comentario WHERE id_post = :idPostagem) AND gostei_de_post_ou_coment = 1)";
     $consulta = $PDO->prepare($sql);
     $consulta->bindParam(":idPostagem", $idPostagem);
     $consulta->execute();

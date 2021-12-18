@@ -7,17 +7,17 @@
 
     require_once("../../funcao/conexao.php");
 
-    if(isset($_GET["usuarioRequerido"]) && $_SESSION["tipoUsuario"] == 1) {
-        $usuario = $_GET["usuarioRequerido"];
+    if(isset($_GET["idUsuarioRequerido"]) && $_SESSION["tipoUsuario"] == 1) {
+        $idUsuario = $_GET["idUsuarioRequerido"];
     }else{
-        $usuario = $_SESSION["usuario"];
+        $idUsuario = $_SESSION["logado"];
     }
 
     $PDO = CriarConexao();
 
-    $sql = "SELECT nome, admin, email FROM usuario WHERE usuario = :usuario";
+    $sql = "SELECT nome, admin, email, usuario FROM usuario WHERE id = :idUsuario";
     $consulta = $PDO->prepare($sql);
-    $consulta->bindParam(":usuario",$usuario);
+    $consulta->bindParam(":idUsuario",$idUsuario);
     $consulta->execute();
 
     $dadosUsuario = $consulta->fetch(PDO::FETCH_ASSOC);
@@ -77,9 +77,9 @@
                     }elseif(isset($_GET["msgSucessoAlteracaoPerfil"])){
                         echo "<p>".$_GET["msgSucessoAlteracaoPerfil"]."</p>";
                     }?>
-                    <form action="alterarPerfil.php?usuarioRequerido=<?php echo $usuario;?>" method="post" class="form">
+                    <form action="alterarPerfil.php?idUsuarioRequerido=<?php echo $idUsuario;?>" method="post" class="form">
                         <input type="text" name="nomeAlteracaoPerfil" value="<?php echo $dadosUsuario["nome"];?>" placeholder="Nome" class="form-control" required><br>
-                        <input type="text" name="usuarioAlteracaoPerfil" value="<?php echo $usuario;?>" placeholder="Nome de usuário" title="Use apenas letras minúsculas e números" class="form-control" required pattern="[a-z0-9]{1,25}"><br>
+                        <input type="text" name="usuarioAlteracaoPerfil" value="<?php echo $dadosUsuario["usuario"];?>" placeholder="Nome de usuário" title="Use apenas letras minúsculas e números" class="form-control" required pattern="[a-z0-9]{1,25}"><br>
                         <input type="email" name="emailAlteracaoPerfil" value="<?php echo $dadosUsuario["email"];?>" placeholder="Email" class="form-control" required><br>
                         <input type="submit" onclick="mudarCorFundoBotao(this)" value="Salvar" class="form-control styleButton" name="btnSalvarPerfil">
                     </form>
@@ -95,7 +95,7 @@
                     }elseif(isset($_GET["msgSucessoAlteracaoSenha"])){
                         echo "<p>".$_GET["msgSucessoAlteracaoSenha"]."</p>";
                     }?>
-                    <form action="alterarSenha.php?usuarioRequerido=<?php echo $usuario;?>" method="post" class="form">
+                    <form action="alterarSenha.php?idUsuarioRequerido=<?php echo $idUsuario;?>" method="post" class="form">
                         <input type="password" name="passwordAlteracaoSenha" placeholder="Nova senha" class="form-control" required><br>
                         <input type="password" name="confirmPasswordAlteracaoSenha" placeholder="Confirmar nova senha" class="form-control" required><br>
                         <input type="submit" onclick="mudarCorFundoBotao(this)" value="Alterar senha" class="form-control styleButton" name="btnAlterarSenha">

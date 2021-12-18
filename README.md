@@ -30,7 +30,7 @@ Possibilitar o encontro de sugestões, discussões e compartilhamentos de ideias
 
 **Diagrama de Classes**
 
-![Diagrama de Classes](diagrama-exemplo.png)
+![Diagrama de Classes](diagrama_de_banco_de_dados.png)
 
 **Modelagem do Banco de Dados**
 
