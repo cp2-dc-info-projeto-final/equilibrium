@@ -28,6 +28,8 @@ Para o usuário se cadastrar, este deve se dirigir a página inicial (index.php)
 
 Para o usuário se logar, este deve se dirigir a página inicial (index.php). Na página de cadastro, haverá os campos "email ou nome de usuário" e "senha". O usuário deverá preenchê-los de acordo com o email ou nome de usuário e senha que ele cadastrou anteriormente e clicar no botão “Entrar”. No caso dos campos estiverem vazios ou incorretos, o sistema enviará um aviso de erro ao usuário. Se não houver nenhum erro, ele será redirecionado para a página pessoal de publicação de postagens.
 
+![Login](src/imagens/manual_do_usuario/login.png)
+
 ## Encerramento de sessão
 
 Qualquer usuário poderá encerrar sua sessão. Para isto, em qualquer página, ele deverá se dirigir ao seu nome cadastrado no canto superior direito da tela. Ao clicar, uma lista com a opção "Sair" aparecerá. Basta o usuário clicar nisto e sua sessão será encerrada.
